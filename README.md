@@ -1,2 +1,2 @@
-# rich-text-editor
+# Rich Text Editor
 Online rich text editor 📝
