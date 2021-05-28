@@ -10,133 +10,119 @@
     <title>Rich Text Editor</title>
 </head>
 <body onload="editMode();">
-    <nav class="toolbar">
-        <ul class="toolbar--box">
-            <li class="toolbar--item">
-                <button onclick="cmd('bold');"><i class="fa fa-bold"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('italic');"><i class="fa fa-italic"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('underline');"><i class="fa fa-underline"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('strikeThrough');"><i class="fa fa-strikethrough"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('justifyLeft');"><i class="fa fa-align-left"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('justifyCenter');"><i class="fa fa-align-center"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('justifyRight');"><i class="fa fa-align-right"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('cut');"><i class="fa fa-cut"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('copy');"><i class="fa fa-copy"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('indent');"><i class="fa fa-indent"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('outdent');"><i class="fa fa-dedent"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('subscript');"><i class="fa fa-subscript"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('superscript');"><i class="fa fa-superscript"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('undo');"><i class="fa fa-undo"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('repeat');"><i class="fa fa-repeat"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('insertUnOrderedList');"><i class="fa fa-list-ul"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('insertParagraph');"><i class="fa fa-paragraph"></i></button>
-            </li>
-        </ul>
-        <ul class="toolbar--item">
-            <li class="toolbar--item">
-                <select onchange="cmdArg('formatBlock', this.value);">
-                    <option value="H1">H1</option>
-                    <option value="H2">H2</option>
-                    <option value="H3">H3</option>
-                    <option value="H4">H4</option>
-                    <option value="H5">H5</option>
-                    <option value="H6">H6</option>
-                </select>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('insertHorizontalRule');">HR</button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmdArg('createLink', prompt('Enter a URL', 'Http://'));"><i class="fa fa-link"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('unlink');"><i class="fa fa-unlink"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="codeSource();"><i class="fa fa-code"></i></button>
-            </li>
-            <li class="toolbar--item">
-                <button onclick="toggleEdit();">Toggle Edit</button>
-            </li>
-            <li class="toolbar--item">
-                <select onchange="cmdArg('fontName', this.value);">
-                    <option value="Arial">Arial</option>
-                    <option value="Comic Sans MS">Comic Sans MS</option>
-                    <option value="Courier">Courier</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Thoma">Thoma</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Verdana">Verdana</option>
-                </select>
-            </li>
-            <li class="toolbar--item">
-                <select onchange="cmdArg('fontSize', this.value);">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                </select>
-            </li>
-            <li class="toolbar--item">
-                <label for="color">Color:</label>
-                <input id="color" type="color" onchange="cmdArg('foreColor', this.value);">
-            </li>
-            <li class="toolbar--item">
-                <label for="bgColor">Background Color:</label>
-                <input id="bgColor" type="color" onchange="cmdArg('hiliteColor', this.value);">
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmdArg('insertImage', prompt('Enter the image URL', ''));"><i class="fa fa-file-image-o"></i></button>
-                <label for="img">Select image:</label>
-                <input type="file" id="img" name="img" accept="image/*">
-            </li>
-            <li class="toolbar--item">
-                <button onclick="cmd('selectAll');">Select All</button>
-            </li>
-        </ul>
-    </nav>
-    <iframe name="richTextField" class="rich-text-field"></iframe>
+    <div class="wrapper">
+        <nav class="toolbar">
+            <ul class="toolbar--box">
+                <li class="toolbar--item">
+                    <button title="Bold" onclick="cmd('bold');"><i class="fa fa-bold"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Italic" onclick="cmd('italic');"><i class="fa fa-italic"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Underline" onclick="cmd('underline');"><i class="fa fa-underline"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Strike Through" onclick="cmd('strikeThrough');"><i class="fa fa-strikethrough"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Unorder List" onclick="cmd('insertUnOrderedList');"><i class="fa fa-list-ul"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Order List" onclick="cmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
+                </li>
+            </ul>
+            <ul class="toolbar--box">
+                <li class="toolbar--item">
+                    <button title="Left" onclick="cmd('justifyLeft');"><i class="fa fa-align-left"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Center" onclick="cmd('justifyCenter');"><i class="fa fa-align-center"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Right" onclick="cmd('justifyRight');"><i class="fa fa-align-right"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Justify" onclick="cmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
+                </li>
+            </ul>
+            <ul class="toolbar--box">
+                <li class="toolbar--item">
+                    <button title="Indent" onclick="cmd('indent');"><i class="fa fa-indent"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Outdent" onclick="cmd('outdent');"><i class="fa fa-dedent"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Subscript" onclick="cmd('subscript');"><i class="fa fa-subscript"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Superscript" onclick="cmd('superscript');"><i class="fa fa-superscript"></i></button>
+                </li>
+            </ul>
+            <ul class="toolbar--box">
+                <li class="toolbar--item">
+                    <select title="Font Family" onchange="cmdArg('fontName', this.value);">
+                        <option value="Arial">Arial</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Courier">Courier</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Thoma">Thoma</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                    </select>
+                </li>
+                <li class="toolbar--item">
+                    <select title="Font Size" onchange="cmdArg('fontSize', this.value);">
+                        <option value="1">10 px</option>
+                        <option value="2">13 px</option>
+                        <option value="3">15 px</option>
+                        <option value="4">18 px</option>
+                        <option value="5">24 px</option>
+                        <option value="6">32 px</option>
+                        <option value="7">48 px</option>
+                    </select>
+                </li>
+                <li class="toolbar--item">
+                    <select title="Title Size" onchange="cmdArg('formatBlock', this.value);">
+                        <option value="H1">H1</option>
+                        <option value="H2">H2</option>
+                        <option value="H3">H3</option>
+                        <option value="H4">H4</option>
+                        <option value="H5">H5</option>
+                        <option value="H6">H6</option>
+                    </select>
+                </li>
+                <li class="toolbar--item">
+                    <label for="color">Color:</label>
+                    <input title="Text Color" id="color" type="color" onchange="cmdArg('foreColor', this.value);">
+                </li>
+                <li class="toolbar--item">
+                    <label for="bgColor">Background:</label>
+                    <input title="Background Color" id="bgColor" type="color" onchange="cmdArg('hiliteColor', this.value);">
+                </li>
+            </ul>
+            <ul class="toolbar--box">
+                <li class="toolbar--item">
+                    <button title="Cut" onclick="cmd('cut');"><i class="fa fa-cut"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Copy" onclick="cmd('copy');"><i class="fa fa-copy"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Show Code" onclick="codeSource();"><i class="fa fa-code"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Undo" onclick="cmd('undo');"><i class="fa fa-undo"></i></button>
+                </li>
+                <li class="toolbar--item">
+                    <button title="Redo" onclick="cmd('redo');"><i class="fa fa-repeat"></i></button>
+                </li>
+            </ul>
+        </nav>
+        <iframe name="richTextField" class="rich-text-field">
+        </iframe>
+    </div>
 <script src="script.js"></script>
 </body>
 </html>
