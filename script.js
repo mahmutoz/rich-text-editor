@@ -33,13 +33,3 @@ function codeSource(){
         isSourceCode = true;
     }
 }
-
-function toggleEdit(){
-    if (isEditMode){
-        richTextField.document.designMode = 'Off';
-        isEditMode = false;
-    } else {
-        richTextField.document.designMode = 'On';
-        isEditMode = true;
-    }
-}
