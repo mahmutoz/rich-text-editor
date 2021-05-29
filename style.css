@@ -69,23 +69,52 @@ body {
     padding: .3rem .2rem;
     font-size: 14px;
     font-weight: 600;
+    border-radius: 3px;
 }
 
 .toolbar--item select:focus {
     outline: none;
 }
 
-.active {
-    background-color: rgb(234, 232, 232) !important;
+input#color {
+    display: flex;
+    align-items: center;
 }
 
 .rich-text-field {
     width: 55rem;
     height: 50rem;
+    margin-top: .5rem;
     padding: 5px 10px;
     border: none;
     box-shadow: 0 1px 8px 2px rgba(0,0,0, .2);
     border-radius: 5px;
     overflow: hidden;
     background-color: #fefefe;
+}
+
+@media only screen and (max-width: 768px){
+    .wrapper {
+        width: auto;
+    }
+
+    .toolbar {
+        justify-content: center;
+    }
+
+    .toolbar--box:nth-child(1) {
+        order: 2;
+    }
+
+    .toolbar--box:nth-child(2) {
+        order: 1;
+    }
+
+    .toolbar--box:nth-child(4) {
+        order: 3;
+    }
+
+    .rich-text-field {
+        width: auto;
+    }
 }
